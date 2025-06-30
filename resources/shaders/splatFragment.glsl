@@ -1,0 +1,1 @@
+// splat fragment shader placeholder

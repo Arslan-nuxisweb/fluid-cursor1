@@ -1,1 +1,1 @@
-// Placeholder shader
+// bloom final fragment shader placeholder

@@ -1,1 +1,1 @@
-// Placeholder shader
+// base vertex shader placeholder
