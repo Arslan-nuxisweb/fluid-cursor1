@@ -671,3 +671,12 @@ window.addEventListener('touchend', e => {
   if (touches[i].identifier == pointers[j].id)
   pointers[j].down = false;
 });
+const canvas = document.querySelector('canvas');
+const gl = canvas.getContext('webgl2', { alpha: true }); // Enable transparency
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Transparent background
+gl.clearColor(0.0, 0.0, 0.0, 0.0);
+gl.clear(gl.COLOR_BUFFER_BIT);
