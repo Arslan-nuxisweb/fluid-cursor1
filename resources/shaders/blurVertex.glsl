@@ -1,1 +1,1 @@
-// blur vertex shader placeholder
+// blur vertex content

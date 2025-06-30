@@ -1,1 +1,1 @@
-// curl fragment shader placeholder
+// curl fragment content

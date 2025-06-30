@@ -1,1 +1,1 @@
-// display fragment shader placeholder
+// display fragment content
