@@ -1,11 +1,11 @@
-let canvas = document.getElementById('fluid-canvas');
+var canvas = document.getElementById('fluid-canvas');
 if (!canvas) {
   canvas = document.createElement('canvas');
   canvas.id = 'fluid-canvas';
   document.body.appendChild(canvas);
 }
 
-let script = document.createElement('script');
+var script = document.createElement('script');
 script.src = 'https://cdn.jsdelivr.net/gh/PavelDoGreat/WebGL-Fluid-Simulation/script.js';
 script.onload = () => {
   if (typeof initFluidSimulation === 'function') {
