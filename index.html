@@ -6,8 +6,51 @@
   <title>Fluid Cursor</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body style="background: black;">
-  <canvas id="fluid-canvas" style="background:red;"></canvas>
-  <script src="script.js"></script>
+<body style="margin: 0; padding: 0; background: black;">
+  <!-- Canvas will be added by script.js dynamically -->
+  <script>
+    // Wait for DOM load before appending canvas and script
+    document.addEventListener("DOMContentLoaded", function () {
+      const existingCanvas = document.getElementById('fluid-canvas');
+      const canvas = existingCanvas || (() => {
+        const c = document.createElement('canvas');
+        c.id = 'fluid-canvas';
+        document.body.appendChild(c);
+        return c;
+      })();
+
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/gh/PavelDoGreat/WebGL-Fluid-Simulation/script.js';
+
+      script.onload = () => {
+        try {
+          if (typeof initFluidSimulation === 'function') {
+            startGUI = () => {};
+            initFluidSimulation(canvas, {
+              SIM_RESOLUTION: 128,
+              DYE_RESOLUTION: 512,
+              VELOCITY_DISSIPATION: 0.2,
+              PRESSURE: 0.8,
+              PRESSURE_ITERATIONS: 20,
+              CURL: 30,
+              SPLAT_RADIUS: 0.25,
+              SPLAT_FORCE: 6000,
+              SHADING: true,
+              COLORFUL: true,
+              TRANSPARENT: true
+            });
+          }
+        } catch (e) {
+          console.error("init error:", e);
+        }
+      };
+
+      script.onerror = () => {
+        console.error("Failed to load script.js");
+      };
+
+      document.body.appendChild(script);
+    });
+  </script>
 </body>
 </html>
