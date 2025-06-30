@@ -1,37 +1,13 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fluid Cursor</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/gh/PavelDoGreat/WebGL-Fluid-Simulation/script.js"></script>
+  <script src="script.js"></script>
+  <script src="gui.js"></script>
 </head>
 <body style="margin:0;padding:0;background:black;">
   <canvas id="fluid-canvas"></canvas>
-  <script>
-    window.onload = function () {
-      const canvas = document.getElementById("fluid-canvas");
-
-      if (typeof initFluidSimulation === "function") {
-        startGUI = () => {}; // disable GUI panel
-        initFluidSimulation(canvas, {
-          SIM_RESOLUTION: 128,
-          DYE_RESOLUTION: 512,
-          VELOCITY_DISSIPATION: 0.2,
-          PRESSURE: 0.8,
-          PRESSURE_ITERATIONS: 20,
-          CURL: 30,
-          SPLAT_RADIUS: 0.25,
-          SPLAT_FORCE: 6000,
-          SHADING: true,
-          COLORFUL: true,
-          TRANSPARENT: true
-        });
-      } else {
-        console.error("❌ initFluidSimulation not loaded.");
-      }
-    };
-  </script>
 </body>
 </html>
