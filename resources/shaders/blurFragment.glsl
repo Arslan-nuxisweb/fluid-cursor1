@@ -1,1 +1,1 @@
-// blur fragment content
+// blurFragment shader

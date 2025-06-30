@@ -1,1 +1,1 @@
-// splat fragment content
+// splatFragment shader

@@ -1,1 +1,1 @@
-// curl fragment content
+// curlFragment shader

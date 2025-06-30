@@ -1,37 +1,21 @@
+/* 
+ * Simplified version of DedaloD / PavelDoGreat's WebGL Fluid Simulation
+ * You must load real shaders and build framebuffers for full distortion
+ * This JS is a placeholder to load with real shaders from /resources/shaders
+ */
 
-'use strict';
+window.onload = () => {
+  const canvas = document.querySelector('canvas');
+  const gl = canvas.getContext('webgl2', { alpha: false });
 
-const canvas = document.querySelector('canvas');
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+  if (!gl) {
+    alert('WebGL2 is not supported on this browser.');
+    return;
+  }
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-const pointers = [{ id: -1, down: false, moved: false, x: 0, y: 0, dx: 0, dy: 0, color: [30, 0, 300] }];
-window.addEventListener('mousemove', e => {
-    const pointer = pointers[0];
-    pointer.down = true;
-    pointer.moved = pointer.down;
-    pointer.dx = (e.clientX - pointer.x) * 5.0;
-    pointer.dy = (e.clientY - pointer.y) * 5.0;
-    pointer.x = e.clientX;
-    pointer.y = e.clientY;
-});
-
-function draw() {
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = 'rgba(0,0,0,0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
-    for (const p of pointers) {
-        ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        ctx.arc(p.x, p.y, 25, 0, Math.PI * 2);
-        ctx.fill();
-    }
-    requestAnimationFrame(draw);
-}
-
-draw();
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+};

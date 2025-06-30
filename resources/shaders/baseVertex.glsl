@@ -1,1 +1,1 @@
-// vertex shader content
+// CodePen base vertex shader code
